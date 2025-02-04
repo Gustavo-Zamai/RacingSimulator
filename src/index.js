@@ -1,20 +1,16 @@
 // players objects
-
-const playerOne = {
-    name: 'Player 1',
-    score: 0,
-    speed: 4,
-    handling: 3,
-    power: 3,
-};
-
-const playerTwo = {
-    name: 'Player 2',
-    score: 0,
-    speed: 5,
-    handling: 2,
-    power: 5,
-};
+characters = [
+    {name: "Mario", speed: 4, handling: 3, power: 3, score: 0},
+    {name: "Luigi", speed: 3, handling: 4, power: 3, score: 0},
+    {name: "Peach", speed: 3, handling: 4, power: 2, score: 0},
+    {name: "Donkey Kong", speed: 2, handling: 2, power: 5, score: 0},
+    {name: "Toad", speed: 2, handling: 5, power: 4, score: 0},
+    {name: "Yoshi", speed: 2, handling: 4, power: 3, score: 0},
+    {name: "Bowser", speed: 5, handling: 2, power: 5, score: 0},
+    {name: "Kirby", speed: 5, handling: 3, power: 2, score: 0},
+    {name: "Samus", speed: 4, handling: 4, power: 4, score: 0},
+    {name: "Fox", speed: 3, handling: 5, power: 3, score: 0},
+];
 
 async function rollDice() {
     return Math.floor(Math.random() * 6) + 1;
@@ -167,6 +163,13 @@ async function declareWinner(playerOne, PlayerTwo) {
 
 // auto involke function
 (async function main() {
+    let randomNumber1 = Math.floor(Math.random() * characters.length);
+    let randomNumber2 = Math.floor(Math.random() * characters.length);
+
+    console.log(randomNumber1, randomNumber2);
+    playerOne = characters[randomNumber1];
+    playerTwo = characters[randomNumber2];
+    console.log(playerOne, playerTwo);
     console.log(
         `🚨 🏁 Racing between ${playerOne.name} and ${playerTwo.name} is about to begin... \n`
     );
