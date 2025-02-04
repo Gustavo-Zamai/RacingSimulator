@@ -39,7 +39,7 @@ async function logRollResult(characterName, block, diceResult, attribute) {
 };
 
 async function playRace(characterOne, characterTwo) {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
         console.log(`\n 🏁 Round ${i}`);
 
         //random event block
@@ -97,7 +97,7 @@ async function playRace(characterOne, characterTwo) {
             let powerResultOne = (characterOne.power + diceOne);
             let powerResultTwo = (characterTwo.power + diceTwo);
 
-            let powerUps = ['Turtle Shell', 'Bomb'];
+            let powerUps = ['Turtle Shell', 'Bomb', 'Banana Peel'];
             let powerUp = powerUps[Math.floor(Math.random() * powerUps.length)];
 
             console.log(`${characterOne.name} battle with ${characterTwo.name} 🥊`);
@@ -124,7 +124,7 @@ async function playRace(characterOne, characterTwo) {
                     console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was blows away by a ${powerUp} and losses 3 points 💣`)
                     characterTwo.score -= 3;
                 } else {
-                    console.log(`${characterOne.name} wins the battle! ${characterTwo.name} losses one point 🐢`)
+                    console.log(`${characterOne.name} wins the battle! ${characterTwo.name} slips in a ${powerUp} and losses 1 point 🍌`)
                     characterOne.score--;
                 }
             }
@@ -137,7 +137,7 @@ async function playRace(characterOne, characterTwo) {
                     console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was blows away by a ${powerUp} and losses 3 points 💣`)
                     characterOne.score -= 3;
                 } else {
-                    console.log(`${characterTwo.name} wins the battle! ${characterOne.name} losses one point 🐢`)
+                    console.log(`${characterTwo.name} wins the battle! ${characterOne.name} slips in a ${powerUp} and losses 1 point 🍌`)
                     characterOne.score--;
                 }
             }
