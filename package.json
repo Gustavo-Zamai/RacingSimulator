@@ -1,0 +1,11 @@
+{
+  "name": "racingsimulator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "run": "node src/index.js"
+  },
+  "author": "Gustavo Zamai",
+  "license": "MIT",
+  "description": ""
+}
