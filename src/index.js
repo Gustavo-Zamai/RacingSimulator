@@ -10,6 +10,9 @@ characters = [
     { name: "Kirby", speed: 5, handling: 3, power: 2, score: 0 },
     { name: "Samus", speed: 4, handling: 4, power: 4, score: 0 },
     { name: "Fox", speed: 3, handling: 5, power: 3, score: 0 },
+    { name: "Ness", speed: 4, handling: 3, power: 3, score: 0 },
+    { name: "Jigglypuff", speed: 4, handling: 3, power: 3, score: 0 },
+    { name: "Pikachu", speed: 5, handling: 3, power: 2, score: 0 },
 ];
 
 async function rollDice() {
