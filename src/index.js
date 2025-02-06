@@ -39,7 +39,7 @@ async function logRollResult(characterName, block, diceResult, attribute) {
 };
 
 async function playRace(characterOne, characterTwo) {
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 5; i++) {
         console.log(`\n 🏁 Round ${i}`);
 
         //random event block
@@ -118,40 +118,83 @@ async function playRace(characterOne, characterTwo) {
 
             if (powerResultOne > powerResultTwo && characterTwo.score > 0) {
                 if (powerUp === "Turtle Shell") {
-                    console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was hit by a ${powerUp} and losses 2 points 🐢`)
-                    characterTwo.score -= 2;
+                    if (characterTwo.score >= 2) {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was hit by a ${powerUp} and losses 2 points 🐢`)
+                        characterTwo.score -= 2;
+                    } else if (characterTwo.score === 1) {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was hit by a ${powerUp} and losses 1 points 🐢`)
+                        characterTwo.score--;
+                    } else {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} escapes the hit from a ${powerUp} and not losses points!`)
+                    }
                 } else if (powerUp === "Bomb") {
-                    console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was blows away by a ${powerUp} and losses 3 points 💣`)
-                    characterTwo.score -= 3;
+                    if (characterTwo.score >= 3) {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was blows away by a ${powerUp} and losses 3 points 💣`)
+                        characterTwo.score -= 3;
+                    } else if (characterTwo.score === 2) {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was blows away by a ${powerUp} and losses 2 points 💣`)
+                        characterTwo.score -= 2;
+                    } else if (characterTwo.score === 1) {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} was blows away by a ${powerUp} and losses 1 point 💣`)
+                        characterTwo.score--;
+                    } else {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} escapes the hit from a ${powerUp} and not losses points!`)
+                    }
                 } else {
-                    console.log(`${characterOne.name} wins the battle! ${characterTwo.name} slips in a ${powerUp} and losses 1 point 🍌`)
-                    characterOne.score--;
+                    if (characterTwo.score >= 1) {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} slips in a ${powerUp} and losses 1 point 🍌`)
+                        characterTwo.score--;
+                    } else {
+                        console.log(`${characterOne.name} wins the battle! ${characterTwo.name} escapes the hit from a ${powerUp} and not losses points!`)
+                    }
                 }
             }
 
             if (powerResultTwo > powerResultOne && characterOne.score > 0) {
                 if (powerUp === "Turtle Shell") {
-                    console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was hit by a ${powerUp} and losses 2 points 🐢`)
-                    characterOne.score -= 2;
+                    if (characterOne.score >= 2) {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was hit by a ${powerUp} and losses 2 points 🐢`)
+                        characterOne.score -= 2;
+                    } else if (characterOne.score === 1) {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was hit by a ${powerUp} and losses 1 points 🐢`)
+                        characterOne.score--;
+                    } else {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} escapes the hit from a ${powerUp} and not losses points!`)
+                    }
                 } else if (powerUp === "Bomb") {
-                    console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was blows away by a ${powerUp} and losses 3 points 💣`)
-                    characterOne.score -= 3;
+                    if (characterOne.score >= 3) {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was blows away by a ${powerUp} and losses 3 points 💣`)
+                        characterOne.score -= 3;
+                    } else if (characterOne.score === 2) {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was blows away by a ${powerUp} and losses 2 points 💣`)
+                        characterOne.score -= 2;
+                    } else if (characterOne.score === 1) {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} was blows away by a ${powerUp} and losses 1 point 💣`)
+                        characterOne.score--;
+                    } else {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} escapes the hit from a ${powerUp} and not losses points!`)
+                    }
                 } else {
-                    console.log(`${characterTwo.name} wins the battle! ${characterOne.name} slips in a ${powerUp} and losses 1 point 🍌`)
-                    characterOne.score--;
+                    if (characterOne.score === 1) {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} slips in a ${powerUp} and losses 1 point 🍌`)
+                        characterOne.score--;
+                    } else {
+                        console.log(`${characterTwo.name} wins the battle! ${characterOne.name} escapes the hit from a ${powerUp} and not losses points!`)
+                    }
+
                 }
             }
-            /* ifs ternarios
-            characterTwo.score -= powerResultOne > powerResultTwo && characterTwo.score > 0 ? 1 : 0;
-
-            characterOne.power -= powerResultTwo > powerResultOne && characterOne.score > 0 ? 1 : 0;
-
-            console.log(
-                powerResultTwo === powerResultOne 
-                ? "It's a tie! No points lost!"
-                : "");
-            */
         }
+        /* ifs ternarios
+        characterTwo.score -= powerResultOne > powerResultTwo && characterTwo.score > 0 ? 1 : 0;
+    
+        characterOne.power -= powerResultTwo > powerResultOne && characterOne.score > 0 ? 1 : 0;
+    
+        console.log(
+            powerResultTwo === powerResultOne 
+            ? "It's a tie! No points lost!"
+            : "");
+        */
         let nitro = Math.floor(Math.random() * 1);
 
         // compare skills
@@ -197,7 +240,7 @@ async function declareWinner(playerOne, playerTwo) {
 
         await playRace(playerOne, playerTwo);
         await declareWinner(playerOne, playerTwo);
-    }else {
+    } else {
         console.log("Bad mood outside for a race! 🌧️");
     }
 })();
