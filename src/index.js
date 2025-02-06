@@ -232,11 +232,8 @@ async function declareWinner(playerOne, playerTwo) {
     let randomNumber2 = Math.floor(Math.random() * characters.length);
 
     if (randomNumber1 !== randomNumber2) {
-
-        console.log(randomNumber1, randomNumber2);
         playerOne = characters[randomNumber1];
         playerTwo = characters[randomNumber2];
-        console.log(playerOne, playerTwo);
         console.log(
             `🚨 🏁 Racing between ${playerOne.name} and ${playerTwo.name} is about to begin... \n`
         );
